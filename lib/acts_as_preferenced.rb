@@ -34,7 +34,7 @@ module ActsAsPreferenced
     # obj can be an object or class and name must be a string
     # you may additionally pass a hash to create several preferences at once
     def set_preference(name, value=nil, obj=self)
-      value = nil if value.blank?
+      value = nil if value.nil?
       if name.is_a? Hash
         pref, prefs = nil, []
         name.keys.each{|key| prefs << pref = set_preference(key.to_s, name[key], obj) } and return prefs.size > 1 ? prefs : pref
